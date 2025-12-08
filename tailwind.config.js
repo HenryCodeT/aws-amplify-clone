@@ -45,6 +45,34 @@ module.exports = {
         xxl: "4rem",
         xxxl: "999px",
       },
+      borderWidth: {
+        small: "1px",
+        medium: "2px",
+        large: "4px",
+      },
+      opacity: {
+        10: "0.1",
+        20: "0.2",
+        40: "0.4",
+        60: "0.6",
+        80: "0.8",
+        100: "1",
+      },
+      transitionDuration: {
+        short: "150ms",
+        medium: "300ms",
+        long: "500ms",
+      },
+      outlineWidth: {
+        small: "1px",
+        medium: "2px",
+        large: "4px",
+      },
+      outlineOffset: {
+        small: "1px",
+        medium: "2px",
+        large: "4px",
+      },
       colors: {
         primary: {
           10: "hsl(190 75% 95%)",
