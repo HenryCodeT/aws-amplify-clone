@@ -1,7 +1,23 @@
-# 🎨 Next.js 14 + Storybook 8 + Tailwind CSS — Starter
+# ⚡ AWS Amplify Clone
 
-A starter project using Next.js, React, Storybook, and Tailwind CSS, with a small utility layer built using CVA, clsx, and tailwind-merge.
-Designed for building UI components and design systems.
+A modern web application inspired by AWS Amplify, built with Next.js 14, React, and Tailwind CSS. Features a complete design system with form controls, tested components, and streamlined development workflow.
+
+## 🎯 Project Goals
+
+- Build a production-ready form system with validation
+- Create reusable, accessible UI components
+- Implement comprehensive testing coverage
+- Maintain clean, documented code
+
+## ✨ Key Features
+
+- ✅ **Form Controls**: Complete set of accessible form components (Input, Checkbox, Radio, Switch, Slider)
+- ✅ **React Hook Form Integration**: Seamless form validation with Zod schemas
+- ✅ **Testing**: 45+ tests with Vitest & React Testing Library
+- ✅ **Storybook**: Interactive component documentation
+- ✅ **Git Workflow**: Streamlined commits with conventional commits
+- ✅ **Type Safety**: Full TypeScript support
+- ✅ **Accessibility**: ARIA attributes, keyboard navigation
 
 ---
 
@@ -109,25 +125,39 @@ twMerge("px-4 px-2");
 # 📁 Project Structure
 
 ```
-/
-├─ .storybook/
+aws-amplify/
+├─ .storybook/              # Storybook configuration
 ├─ src/
-│  ├─ app/
+│  ├─ app/                  # Next.js app directory
 │  ├─ components/
 │  │   └─ ui/
-│  ├─ lib/
-│  └─ styles/
+│  │       └─ form-controls/
+│  │           ├─ field-components/    # FormField wrapper
+│  │           └─ primitive-inputs/    # Input, Checkbox, etc.
+│  ├─ lib/                  # Utilities (cn, validators)
+│  └─ styles/               # Global styles
+├─ .bashrc                  # Git workflow configuration
+├─ vitest.config.ts         # Test configuration
+├─ TESTING.md               # Testing guide
+├─ GIT-WORKFLOW.md          # Git workflow guide
 └─ package.json
 ```
 
 ---
 
-# 📦 Installation
+# 📦 Quick Start
 
 ```bash
-npm install
-npm run dev         # Next.js → localhost:3000
-npm run storybook   # Storybook → localhost:6006
+# Install dependencies
+pnpm install
+
+# Activate Git workflow (optional but recommended)
+source .bashrc
+
+# Start development
+pnpm dev              # Next.js → http://localhost:3000
+pnpm storybook        # Storybook → http://localhost:6006
+pnpm test             # Run tests in watch mode
 ```
 
 ---
@@ -147,10 +177,118 @@ npm run storybook   # Storybook → localhost:6006
 
 ---
 
-# 🛠️ Scripts
+# 🛠️ Available Scripts
+
+| Command | Description |
+|---------|-------------|
+| `pnpm dev` | Start Next.js dev server (port 3000) |
+| `pnpm build` | Build production app |
+| `pnpm start` | Start production server |
+| `pnpm lint` | Run ESLint |
+| `pnpm storybook` | Start Storybook (port 6006) |
+| `pnpm test` | Run tests in watch mode |
+| `pnpm test:ui` | Run tests with UI interface |
+| `pnpm test:coverage` | Generate coverage report |
+
+---
+
+# 🔧 Git Workflow
+
+## Setup (One-Time)
+
+Activate the streamlined Git workflow in your terminal:
 
 ```bash
-npm run dev
-npm run storybook
-npm run build
+source .bashrc
 ```
+
+**For permanent activation**, add to your `~/.bashrc`:
+```bash
+cat .bashrc >> ~/.bashrc
+source ~/.bashrc
+```
+
+## Quick Commands
+
+| Command | What it does | Example |
+|---------|--------------|---------|
+| `gst` | Quick status with branch info | `gst` |
+| `gl` | Pretty commit history | `gl` or `gl -5` |
+| `gad` | Stage all changes | `gad` |
+| `gp` | Push to remote | `gp` |
+| `gpl` | Pull from remote | `gpl` |
+
+## Conventional Commits (Recommended)
+
+Use semantic commit messages for clarity:
+
+```bash
+feat "scope" "description"       # New feature
+fix "scope" "description"        # Bug fix
+refactor "scope" "description"   # Code improvement
+docs "scope" "description"       # Documentation
+```
+
+**Examples:**
+```bash
+feat "forms" "add email validation"
+fix "ui" "correct button spacing"
+refactor "api" "simplify error handling"
+docs "readme" "add testing guide"
+```
+
+**What NOT to do:**
+```bash
+feat                  # ❌ Missing arguments
+feat "test"           # ❌ Missing description
+```
+
+**💡 Tip:** If you run a command without arguments by mistake, fix it with:
+```bash
+git commit --amend -m "feat(scope): proper message here"
+```
+
+**Full workflow guide:** [GIT-WORKFLOW.md](GIT-WORKFLOW.md)
+
+---
+
+# ✅ Testing
+
+Tests are written with **Vitest** and **React Testing Library**.
+
+```bash
+pnpm test              # Run tests in watch mode
+pnpm test:ui           # Visual test interface
+pnpm test:coverage     # Coverage report
+```
+
+**Current status:** 45 tests passing across 2 test suites
+
+**Testing guide:** [TESTING.md](TESTING.md)
+
+Example test files:
+- [form-field.test.tsx](src/components/ui/form-controls/field-components/form-field/form-field.test.tsx) - 20 tests
+- [input.test.tsx](src/components/ui/form-controls/primitive-inputs/input/input.test.tsx) - 25 tests
+
+---
+
+# 📚 Documentation
+
+- **[TESTING.md](TESTING.md)** - Complete testing guide with examples
+- **[GIT-WORKFLOW.md](GIT-WORKFLOW.md)** - Git workflow and conventional commits
+- **[TEST-SETUP-SUMMARY.md](TEST-SETUP-SUMMARY.md)** - Testing setup details
+
+---
+
+# 🚧 Roadmap
+
+- [ ] Add more form components (Textarea, Select, DatePicker)
+- [ ] Implement form validation examples
+- [ ] Create demo pages with real forms
+- [ ] Add integration tests
+- [ ] Set up CI/CD pipeline
+- [ ] Add E2E tests with Playwright
+
+---
+
+**Built with ❤️ using Next.js, React, and Tailwind CSS**
